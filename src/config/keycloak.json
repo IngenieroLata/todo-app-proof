@@ -1,0 +1,8 @@
+{
+    "realm": "DEV_Int",
+    "realm-public-key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAr49pzL3OJ1GFUYyq8DI4O1TlngBG1KNBqDJq5/+BhUChz3v6+fpkgQpZLlnserbPrNmLc7ozhRHIEXBRrAHwuUx4d7+w1ukH5tzeOlywm1NNLggC010TQko3VOhPisfwtrqC7AR2sdDt5+z3B4a2Ma13AZTApjQThQPy0ZlQc1kCK9BwkPKKH/FM0us9Iota+7hSHRMaSw9JGd/sY9uUNdelW8DWXLXqvLMIYhHtmIgHjqItNAtuTcgxIs6IM4qFQjUp2RVGbGxQguHAWKu3L6fx2nqlDSRaqAu4tdMN32vR34s7+9Cxl9l3ZF/zOy5+Unf8R6u7s6+9gjxA47RccwIDAQAB",
+    "auth-server-url": "https://kc-lower.wfscorp.com/auth",
+    "ssl-required": "external",
+    "resource": "etw-workflow-ui-dev",
+    "public-client": true
+}

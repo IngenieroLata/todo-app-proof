@@ -7,12 +7,13 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
   styleUrls: ['./todo.component.scss']
 })
 export class TodoComponent implements OnInit {
-  private filter: String;
+  private todoText: String;
 
   constructor() {}
 
-  private addTodo(todo) {
-    console.log(todo);
+  private addTodo(todoInput: HTMLInputElement) {
+    this.todoText = todoInput.value;
+    todoInput.value = null;
   }
 
   ngOnInit() {

@@ -22,4 +22,8 @@ export class TodosService {
     this.list.splice(todoIndex, 1);
   }
 
+  addTodo(todo: Todo) {
+    this.list.push(todo);
+  }
+
 }

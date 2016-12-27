@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, OnChanges, Input, SimpleChanges } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { TodosService } from '../shared/todos.service';
@@ -9,7 +9,8 @@ import { Todo } from '../shared/todo';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
-export class ListComponent implements OnInit {
+export class ListComponent implements OnInit, OnChanges{
+  @Input() todo: string;
   private todoList: Todo[];
   private filter: string;
 
@@ -18,6 +19,13 @@ export class ListComponent implements OnInit {
     private router: Router,
     private todoService: TodosService) {
       this.route.params.subscribe(this.onFilter);
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    let todo = changes['todo'].currentValue
+    if(todo) {
+      this.todoService.addTodo(new Todo( todo ));
+    }
   }
 
   ngOnInit() {
@@ -34,4 +42,8 @@ export class ListComponent implements OnInit {
     }
   }
 
+  private removeTask(index) {
+    this.todoList.splice(index, 1);
+  }
 }
+

@@ -10,21 +10,21 @@ export class ListComponent implements OnInit {
   list: Array<Object>;
   filter: string;
 
-  onToggleTask(task) {
-    task.state = !task.state;
+  onToggleTask(state) {
+    return !state;
   }
 
-  removeTask(index) {
+  private removeTask(index) {
     this.list.splice(index,1);
   }
 
   constructor() {
     this.list = [
-      {text: 'Learn Angular 2 testing',state: 0},
-      {text: 'Finish Angular 2 homework',state: 0},
-      {text: 'Clean bedroom',state: 1},
-      {text: 'Buy gifts to children',state: 0}
-    ];
+      {text: 'Learn Angular 2 testing',state: false},
+      {text: 'Finish Angular 2 homework',state: false},
+      {text: 'Clean bedroom',state: true},
+      {text: 'Buy gifts to children',state: false}
+    ]; 
     this.filter = 'all';
   }
 

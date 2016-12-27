@@ -1,6 +1,7 @@
 /* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { DebugElement } from '@angular/core';
 
 import { ListComponent } from './list.component';
@@ -11,6 +12,7 @@ describe('ListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [FormsModule],
       declarations: [ ListComponent ]
     })
     .compileComponents();
@@ -24,5 +26,10 @@ describe('ListComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should toggle task state', () => {
+    let t = false;
+    expect(component.onToggleTask(t)).toBeTruthy();
   });
 });

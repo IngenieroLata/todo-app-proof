@@ -18,7 +18,8 @@ export class TodosService {
     todo.toggleTask();
   }
 
-  removeTask(todoIndex: number) {
+  removeTask(todo: Todo) {
+    let todoIndex = this.list.indexOf(todo);
     this.list.splice(todoIndex, 1);
   }
 

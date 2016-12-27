@@ -22,6 +22,7 @@ export class ListComponent implements OnInit, OnChanges{
   }
 
   ngOnChanges(changes: SimpleChanges) {
+    console.log(changes);
     let todo = changes['todo'].currentValue
     if(todo) {
       this.todoService.addTodo(new Todo( todo ));
@@ -34,16 +35,27 @@ export class ListComponent implements OnInit, OnChanges{
   private onFilter = (params) => {
     this.filter = params['filter'];
 
+    this.filterList();
+  }
+
+  private removeTask(todo) {
+    this.todoService.removeTask(todo);
+    this.filterList();
+  }
+
+  private taskChange(todo, state) {
+    todo.state = state;
+
+    this.filterList();
+  }
+
+  private filterList() {
     if(this.filter === 'all') {
       this.todoList = this.todoService.list;
     } else {
       let f = this.filter === 'completed';
       this.todoList = this.todoService.list.filter( todo => todo.state === f );
     }
-  }
-
-  private removeTask(index) {
-    this.todoList.splice(index, 1);
   }
 }
 

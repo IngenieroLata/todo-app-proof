@@ -1,6 +1,6 @@
 <div>
   <ul>
-    <li *ngFor="let task of list; let i = index">
+    <li *ngFor="let task of todoList; let i = index">
       <input type="checkbox" [(ngModel)]="task.state" [checked]="task.state">
       <span>{{task.text}}</span>
       <button (click)="removeTask(i)">x</button>

@@ -1,4 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+
+import { TodosService } from '../shared/todos.service';
+import { Todo } from '../shared/todo';
 
 @Component({
   selector: 'todo-list',
@@ -6,29 +10,28 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
+  private todoList: Todo[];
+  private filter: string;
 
-  list: Array<Object>;
-  filter: string;
-
-  onToggleTask(state) {
-    return !state;
-  }
-
-  private removeTask(index) {
-    this.list.splice(index,1);
-  }
-
-  constructor() {
-    this.list = [
-      {text: 'Learn Angular 2 testing',state: false},
-      {text: 'Finish Angular 2 homework',state: false},
-      {text: 'Clean bedroom',state: true},
-      {text: 'Buy gifts to children',state: false}
-    ]; 
-    this.filter = 'all';
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private todoService: TodosService) {
+      this.route.params.subscribe(this.onFilter);
   }
 
   ngOnInit() {
+  }
+
+  private onFilter = (params) => {
+    this.filter = params['filter'];
+
+    if(this.filter === 'all') {
+      this.todoList = this.todoService.list;
+    } else {
+      let f = this.filter === 'completed';
+      this.todoList = this.todoService.list.filter( todo => todo.state === f );
+    }
   }
 
 }

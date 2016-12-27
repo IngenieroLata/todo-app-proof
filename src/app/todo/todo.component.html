@@ -1,4 +1,13 @@
 <div class="container">
   <h3>My ToDo List</h3>
+  <form class="" (submit)="addTodo(todo.value)">
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="What needs to be done?" #todo>
+    </div>
+    <!--<button type="button" class="btn btn-primary" (click)="addTodo(todo.value)">
+      Add
+    </button>-->
+  </form>
+  <hr>
   <todo-list></todo-list>
 </div>

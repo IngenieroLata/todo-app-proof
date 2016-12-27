@@ -8,11 +8,11 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 })
 export class TodoComponent implements OnInit {
   private filter: String;
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router
-  ) {
-    this.route.params.subscribe(params => this.filter = params['filter']);
+
+  constructor() {}
+
+  private addTodo(todo) {
+    console.log(todo);
   }
 
   ngOnInit() {

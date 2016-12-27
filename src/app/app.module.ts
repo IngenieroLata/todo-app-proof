@@ -7,6 +7,7 @@ import { RoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { TodoModule } from './todo/todo.module';
+import { ListModule } from './todo/list/list.module';
 import { HeaderComponent } from './header/header.component';
 
 @NgModule({
@@ -19,7 +20,8 @@ import { HeaderComponent } from './header/header.component';
     FormsModule,
     HttpModule,
     RoutingModule,
-    TodoModule
+    TodoModule,
+    ListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
